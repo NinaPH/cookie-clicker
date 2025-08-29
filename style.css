@@ -1,0 +1,47 @@
+.num-cookies-container,
+.per-second-container {
+  min-height: 2em; /* reserver plads til tallet */
+  text-align: center; /* valgfrit, holder tallet centreret */
+}
+
+.cookie-container {
+  display: flex;
+  justify-content: center; /* horisontal centering */
+  align-items: center; /* vertikal centering */
+  height: 100vh; /* fylder hele viewport højden */
+}
+
+.score-container {
+  display: flex;
+  flex-direction: column; /* lægger elementerne lodret */
+  align-items: center; /* centrerer horisontalt */
+  position: absolute;
+  width: 100%;
+  top: 20px; /* afstand fra toppen */
+}
+
+.cookie {
+  cursor: pointer;
+}
+
+.start-bouncing {
+  animation: bounce 1s ease-in 1;
+}
+
+@keyframes bounce {
+  10% {
+    transform: scaleX(0.8) scaleY(0.8);
+  }
+  20% {
+    transform: scaleX(1.3) scaleY(1.3);
+  }
+  30% {
+    transform: none;
+  }
+  40% {
+    transform: scaleX(1.1) scaleY(1.1);
+  }
+  50% {
+    transform: none;
+  }
+}
