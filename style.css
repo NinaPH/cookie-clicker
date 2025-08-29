@@ -1,22 +1,32 @@
+body {
+  background-color: rgb(28, 28, 87);
+}
+
 .num-cookies-container,
-.per-second-container {
+.per-second-container,
+.upgrades-container {
   min-height: 2em; /* reserver plads til tallet */
   text-align: center; /* valgfrit, holder tallet centreret */
+}
+
+.upgrades-container {
+  display: flex;
+  justify-content: center; /* centrerer dem horisontalt */
+  gap: 10px; /* lidt afstand mellem knapperne */
+  margin: 20px 0; /* afstand op/ned til andre elementer */
 }
 
 .cookie-container {
   display: flex;
   justify-content: center; /* horisontal centering */
   align-items: center; /* vertikal centering */
-  height: 100vh; /* fylder hele viewport højden */
+  margin-top: 20px; /* fylder hele viewport højden */
 }
 
 .score-container {
   display: flex;
   flex-direction: column; /* lægger elementerne lodret */
   align-items: center; /* centrerer horisontalt */
-  position: absolute;
-  width: 100%;
   top: 20px; /* afstand fra toppen */
 }
 
