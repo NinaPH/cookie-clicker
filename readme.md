@@ -1,3 +1,3 @@
 ## Cookie Clicker Mockup
 
-![Massive cookie](cookie.png)
+   <img src="cookie.png" alt="cookie" class="cookie" width="200px" />
