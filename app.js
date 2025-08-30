@@ -12,8 +12,8 @@ let perSec = 0;
 document.title = Math.floor(cookies) + " cookies";
 
 // init of on-page text
-cookiesEl.textContent = cookies;
-perSecEl.textContent = perSec;
+cookiesEl.textContent = Math.floor(cookies);
+perSecEl.textContent = perSec.toFixed(1);
 
 // play animation on page load
 window.onload = function () {
@@ -38,7 +38,7 @@ function showGraphics(button) {
   //setting image properties
   image.src = imageSrc;
   image.style.position = "absolute";
-  image.classList.add(".graphics");
+  image.classList.add("graphics");
   image.style.opacity = 0.5;
 
   //make position random
