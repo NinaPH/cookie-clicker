@@ -9,6 +9,8 @@ const upgradeBtns = document.querySelectorAll(".upgrade-btn");
 let cookies = 0;
 let perSec = 0;
 
+document.title = Math.floor(cookies) + " cookies";
+
 // init of on-page text
 cookiesEl.textContent = cookies;
 perSecEl.textContent = perSec;
@@ -62,6 +64,7 @@ function showGraphics(button) {
 setInterval(() => {
   cookies += perSec / 10;
   cookiesEl.textContent = Math.floor(cookies);
+  document.title = Math.floor(cookies) + " cookies";
   toggleUpgradeBtns();
 }, 100);
 
@@ -103,6 +106,7 @@ upgradeBtns.forEach((button) => {
 
       // show results on page elements
       cookiesEl.textContent = Math.floor(cookies);
+      document.title = Math.floor(cookies) + " cookies";
       perSecEl.textContent = perSec.toFixed(1);
       // check whether button should be enabled or disabled
       toggleUpgradeBtns();
