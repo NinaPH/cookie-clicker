@@ -13,17 +13,27 @@ let perSec = 0;
 cookiesEl.textContent = cookies;
 perSecEl.textContent = perSec;
 
-// update buttons and check if they should be updated
-function updateUpgradeBtns() {
+// play animation on page load
+window.onload = function () {
+  cookieEl.classList.add("start-bouncing");
+};
+
+// check if upgrade buttons should be enabled or disabled and toggle them
+function toggleUpgradeBtns() {
   upgradeBtns.forEach((button) => {
     const cost = parseInt(button.dataset.cost);
+    // equation returns a boolean that toggles button
     button.disabled = cookies < cost;
   });
 }
 
-function showGraphic(button) {
+// show graphics of upgrades dynamically
+function showGraphics(button) {
+  // initializing image source file and image variable
   const imageSrc = `${button.dataset.name}.png`;
   const image = document.createElement("img");
+
+  //setting image properties
   image.src = imageSrc;
   image.style.position = "absolute";
   image.classList.add(".graphics");
@@ -36,6 +46,7 @@ function showGraphic(button) {
   const posX = Math.random() * maxX;
   const posY = Math.random() * maxY;
 
+  //placing image
   image.style.left = `${posX}px`;
   image.style.top = `${posY}px`;
 
@@ -43,14 +54,15 @@ function showGraphic(button) {
   const rotation = Math.random() * 90 - 45; // 0–90 minus 45 = -45 til +45
   image.style.transform = `rotate(${rotation}deg)`;
 
+  // appending to doc body
   document.body.appendChild(image);
 }
 
-// interval running every 0.1 secs
+// interval running every 0.1 secs in order to autoclick
 setInterval(() => {
   cookies += perSec / 10;
   cookiesEl.textContent = Math.floor(cookies);
-  updateUpgradeBtns();
+  toggleUpgradeBtns();
 }, 100);
 
 // cookie click event listener
@@ -64,7 +76,7 @@ cookieEl.addEventListener("click", () => {
   cookieAudio.currentTime = 0;
   cookieAudio.play();
 
-  //adding cookies to variable and interface
+  //adding cookies to cookies variable and to interface
   cookies++;
   cookiesEl.textContent = Math.floor(cookies);
 });
@@ -75,6 +87,7 @@ upgradeBtns.forEach((button) => {
   const cost = parseInt(button.dataset.cost);
   const rate = parseFloat(button.dataset.rate);
 
+  // change syntax if rate is 1
   if (rate == 1) {
     button.title = `Gain ${rate} cookie/sec\nCost: ${cost} cookies`;
   } else {
@@ -91,8 +104,10 @@ upgradeBtns.forEach((button) => {
       // show results on page elements
       cookiesEl.textContent = Math.floor(cookies);
       perSecEl.textContent = perSec.toFixed(1);
-      updateUpgradeBtns();
-      showGraphic(button);
+      // check whether button should be enabled or disabled
+      toggleUpgradeBtns();
+      // show upgrade graphics
+      showGraphics(button);
     }
   });
 });
