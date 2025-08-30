@@ -9,10 +9,10 @@ const upgradeBtns = document.querySelectorAll(".upgrade-btn");
 let cookies = 0;
 let perSec = 0;
 
-document.title = Math.floor(cookies) + " cookies";
+document.title = Math.floor(cookies).toLocaleString("en-US") + " cookies";
 
 // init of on-page text
-cookiesEl.textContent = Math.floor(cookies);
+cookiesEl.textContent = Math.floor(cookies).toLocaleString("en-US");
 perSecEl.textContent = perSec.toFixed(1);
 
 // play animation on page load
@@ -32,7 +32,7 @@ function toggleUpgradeBtns() {
 // show graphics of upgrades dynamically
 function showGraphics(button) {
   // initializing image source file and image variable
-  const imageSrc = `${button.dataset.name}.png`;
+  const imageSrc = `assets/${button.dataset.name}.png`;
   const image = document.createElement("img");
 
   //setting image properties
@@ -42,8 +42,8 @@ function showGraphics(button) {
   image.style.opacity = 0.5;
 
   //make position random
-  const maxX = window.innerWidth - image.width;
-  const maxY = window.innerHeight - image.height;
+  const maxX = window.innerWidth;
+  const maxY = window.innerHeight;
 
   const posX = Math.random() * maxX;
   const posY = Math.random() * maxY;
@@ -63,8 +63,8 @@ function showGraphics(button) {
 // interval running every 0.1 secs in order to autoclick
 setInterval(() => {
   cookies += perSec / 10;
-  cookiesEl.textContent = Math.floor(cookies);
-  document.title = Math.floor(cookies) + " cookies";
+  cookiesEl.textContent = Math.floor(cookies).toLocaleString("en-US");
+  document.title = Math.floor(cookies).toLocaleString("en-US") + " cookies";
   toggleUpgradeBtns();
 }, 100);
 
@@ -81,7 +81,7 @@ cookieEl.addEventListener("click", () => {
 
   //adding cookies to cookies variable and to interface
   cookies++;
-  cookiesEl.textContent = Math.floor(cookies);
+  cookiesEl.textContent = Math.floor(cookies).toLocaleString("en-US");
 });
 
 // dynamic event listener for upgrade btns
@@ -89,6 +89,11 @@ upgradeBtns.forEach((button) => {
   // initialize dynamic cost and rate variables based on data attributes in the html
   const cost = parseInt(button.dataset.cost);
   const rate = parseFloat(button.dataset.rate);
+
+  // button text equal to data-name
+  const btnText = button.dataset.name;
+  button.textContent =
+    btnText.charAt(0).toUpperCase() + btnText.slice(1).toLowerCase();
 
   // change syntax if rate is 1
   if (rate == 1) {
@@ -105,8 +110,8 @@ upgradeBtns.forEach((button) => {
       perSec += rate;
 
       // show results on page elements
-      cookiesEl.textContent = Math.floor(cookies);
-      document.title = Math.floor(cookies) + " cookies";
+      cookiesEl.textContent = Math.floor(cookies).toLocaleString("en-US");
+      document.title = Math.floor(cookies).toLocaleString("en-US") + " cookies";
       perSecEl.textContent = perSec.toFixed(1);
       // check whether button should be enabled or disabled
       toggleUpgradeBtns();
