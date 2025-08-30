@@ -1,7 +1,7 @@
 // references to HTML-elements
 const cookieEl = document.querySelector(".cookie");
 const cookiesEl = document.querySelector(".num-cookies-container");
-const perSecEl = document.querySelector(".per-second-container");
+const perSecEl = document.querySelector(".per-second-text");
 const cookieAudio = document.querySelector(".cookie-audio");
 const upgradeBtns = document.querySelectorAll(".upgrade-btn");
 

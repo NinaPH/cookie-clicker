@@ -5,27 +5,55 @@ body {
   padding: 0;
   overflow: hidden;
   font-family: "Courier New", Courier, monospace;
+  color: white;
 }
 
-/* Tekst */
+/* Generel tekst */
 p {
-  color: white;
-  font-size: 1rem; /* mindre tekst end tallene */
+  font-size: 1rem;
+  margin: 0; /* fjern unødig afstand, brug flex gap i stedet */
   text-align: center;
-  margin: 10px 0; /* mindre margin mellem tekststykker */
   position: relative;
   z-index: 10;
 }
 
-/* Score / tal */
-.num-cookies-container,
-.per-second-container {
-  color: white;
-  font-size: 2rem; /* store tal */
+/* Hovedtal */
+.num-cookies-container {
+  font-size: 2rem;
+  margin: 10px 0;
   text-align: center;
-  margin: 2px 0; /* lidt mindre mellem tal og tekst */
   position: relative;
-  z-index: 10; /* højere end grafik */
+  z-index: 10;
+}
+
+/* Cookies per second */
+.per-second-container {
+  display: flex;
+  align-items: center; /* gør at tekst og tal står på linje */
+  justify-content: center;
+  gap: 5px; /* afstand mellem "tekst" og tal */
+  font-size: 0.8rem;
+  margin-top: 5px;
+  position: relative;
+  z-index: 10;
+}
+
+.per-second-container p {
+  font-size: inherit; /* arver fra container */
+}
+
+.per-second-text {
+  font-size: inherit; /* arver fra container */
+}
+
+/* Score container (samler tallene) */
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  position: relative;
+  z-index: 10;
 }
 
 /* Knapper */
@@ -36,6 +64,8 @@ button {
   padding: 15px 32px;
   font-size: 16px;
   cursor: pointer;
+  border: none;
+  border-radius: 4px;
 }
 
 button:disabled {
@@ -43,49 +73,40 @@ button:disabled {
   cursor: default;
 }
 
-/* Containers */
+/* Upgrades container */
 .upgrades-container {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin: 60px 0 60px 0; /* større afstand: 20px ovenfor, 40px nedenfor */
+  margin: 60px 0;
   position: relative;
   z-index: 10;
 }
 
+/* Cookie billede */
 .cookie-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px; /* mere afstand fra knapper */
+  margin-top: 20px;
   position: relative;
   z-index: 10;
 }
 
-.score-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  top: 10px;
-  position: relative;
-  z-index: 10;
-}
-
-/* Grafik-container */
-.graphics {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-/* Cookie billede */
 .cookie img {
   cursor: pointer;
   display: block;
   filter: drop-shadow(0 0 20px antiqueWhite);
   position: relative;
   z-index: 10;
+}
+
+/* Grafik baggrund */
+.graphics {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 /* Animation */
@@ -95,16 +116,16 @@ button:disabled {
 
 @keyframes bounce {
   10% {
-    transform: scaleX(0.8) scaleY(0.8);
+    transform: scale(0.8);
   }
   20% {
-    transform: scaleX(1.3) scaleY(1.3);
+    transform: scale(1.3);
   }
   30% {
     transform: none;
   }
   40% {
-    transform: scaleX(1.1) scaleY(1.1);
+    transform: scale(1.1);
   }
   50% {
     transform: none;
