@@ -97,11 +97,11 @@ upgradeBtns.forEach((button) => {
 
   // change syntax if rate is 1
   if (rate == 1) {
-    button.title = `Gain ${rate.toLocaleString(
+    button.title = `Produces ${rate.toLocaleString(
       "en-US"
     )} cookie/sec\nCost: ${cost.toLocaleString("en-US")} cookies`;
   } else {
-    button.title = `Gain ${rate.toLocaleString(
+    button.title = `Produces ${rate.toLocaleString(
       "en-US"
     )} cookies/sec\nCost: ${cost.toLocaleString("en-US")} cookies`;
   }
