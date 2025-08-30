@@ -8,28 +8,36 @@
   </head>
   <body>
     <div class="score-container">
-      <p>Cookies collected:</p>
+      <p>Number of cookies:</p>
       <div class="num-cookies-container"></div>
       <p>Per second:</p>
       <div class="per-second-container"></div>
     </div>
     <div class="upgrades-container">
-      <button class="upgrade-btn" data-cost="10" data-rate="0.1">
-        Cursor (0.1/s)
+      <button
+        class="upgrade-btn"
+        data-name="cursor"
+        data-cost="10"
+        data-rate="0.1"
+        title=""
+      >
+        Cursor
       </button>
-      <button class="upgrade-btn" data-cost="100" data-rate="1">
-        Grandma (1/s)
-      </button>
-      <button class="upgrade-btn" data-cost="1000" data-rate="10">
-        Farm (10/s)
-      </button>
-      <button class="upgrade-btn" data-cost="5000" data-rate="100">
-        Mine (100/s)
+      <button
+        class="upgrade-btn"
+        data-name="grandma"
+        data-cost="100"
+        data-rate="1"
+        title=""
+      >
+        Grandma
       </button>
     </div>
     <div class="cookie-container">
-      <audio id="clickAudio" src="click_sound.mp3"></audio>
-      <img src="cookie.png" alt="cookie" class="cookie" width="200px" />
+      <div class="cookie">
+        <img src="cookie.png" alt="Big Cookie" width="200px" />
+        <audio class="cookie-audio" src="click_sound.mp3"></audio>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>

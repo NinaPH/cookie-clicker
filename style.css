@@ -1,39 +1,94 @@
+/* Body */
 body {
   background-color: rgb(28, 28, 87);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Courier New", Courier, monospace;
 }
 
+/* Tekst */
+p {
+  color: white;
+  font-size: 1rem; /* mindre tekst end tallene */
+  text-align: center;
+  margin: 10px 0; /* mindre margin mellem tekststykker */
+  position: relative;
+  z-index: 10;
+}
+
+/* Score / tal */
 .num-cookies-container,
-.per-second-container,
-.upgrades-container {
-  min-height: 2em; /* reserver plads til tallet */
-  text-align: center; /* valgfrit, holder tallet centreret */
+.per-second-container {
+  color: white;
+  font-size: 2rem; /* store tal */
+  text-align: center;
+  margin: 2px 0; /* lidt mindre mellem tal og tekst */
+  position: relative;
+  z-index: 10; /* højere end grafik */
 }
 
+/* Knapper */
+button {
+  font-family: inherit;
+  color: rgb(28, 28, 87);
+  background-color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Containers */
 .upgrades-container {
   display: flex;
-  justify-content: center; /* centrerer dem horisontalt */
-  gap: 10px; /* lidt afstand mellem knapperne */
-  margin: 20px 0; /* afstand op/ned til andre elementer */
+  justify-content: center;
+  gap: 10px;
+  margin: 60px 0 60px 0; /* større afstand: 20px ovenfor, 40px nedenfor */
+  position: relative;
+  z-index: 10;
 }
 
 .cookie-container {
   display: flex;
-  justify-content: center; /* horisontal centering */
-  align-items: center; /* vertikal centering */
-  margin-top: 20px; /* fylder hele viewport højden */
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* mere afstand fra knapper */
+  position: relative;
+  z-index: 10;
 }
 
 .score-container {
   display: flex;
-  flex-direction: column; /* lægger elementerne lodret */
-  align-items: center; /* centrerer horisontalt */
-  top: 20px; /* afstand fra toppen */
+  flex-direction: column;
+  align-items: center;
+  top: 10px;
+  position: relative;
+  z-index: 10;
 }
 
-.cookie {
+/* Grafik-container */
+.graphics {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Cookie billede */
+.cookie img {
   cursor: pointer;
+  display: block;
+  filter: drop-shadow(0 0 20px antiqueWhite);
+  position: relative;
+  z-index: 10;
 }
 
+/* Animation */
 .start-bouncing {
   animation: bounce 1s ease-in 1;
 }

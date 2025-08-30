@@ -1,3 +1,3 @@
 ## Cookie Clicker Mockup
 
-   <img src="cookie.png" alt="cookie" class="cookie" width="200px" />
+   <img src="screenshot.png" alt="cookie" class="cookie" width="800px" />
